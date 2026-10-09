@@ -4,18 +4,30 @@ export const CartContext = createContext(null);
 
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState(
-        [
-            {id: 1, title: 'shirt', price: 300, quantity: 1,image: 'url',},
-        ]
-    )
+    const [cart, setCart] = useState([]);
 
-    const addToCart = () => {
-        
+    const addToCart = (product) => {
+        // Check karo item pehle se hai ya nahi
+        const existingItem = cart.find(item => item.id === product.id);
+
+        // Agar hai, toh map se uski quantity +1 kar do
+        if(existingItem){
+            setCart(cart.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1} : item));
+        }
+        else{
+            // Agar nahi hai, toh naya object push karo quantity 1 ke sath
+            setCart([...cart,{...product, quantity: 1}])
+        }
+    }
+
+    const removeCart = (productID) => {
+        //filter is immutable it does not change the original array instead it returns a brand-new array.
+        const updateCart = cart.filter(item => item.id !== productID);
+        setCart(updateCart);
     }
 
     return(
-        <CartContext.Provider value={{cart,setCart}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, removeCart}}>
             {children}
         </CartContext.Provider>
     )

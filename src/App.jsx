@@ -1,7 +1,6 @@
-import CartItem from "./components/CartItems"
-import CartSummery from "./components/CartSummary"
 import Header from "./components/Header"
-import ProductCard from "./components/ProductCard"
+// import ProductCard from "./components/ProductCard"
+import ProductList from "./components/ProductList"
 import Cart from "./components/Cart"
 
 function App() {
@@ -9,9 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <ProductCard/>
-      {/* <CartItem/> */}
-      {/* <CartSummery/> */}
+      <ProductList/>
       <Cart/>
     </>
   )
