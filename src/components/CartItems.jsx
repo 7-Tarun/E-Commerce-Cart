@@ -1,5 +1,7 @@
 function CartItem() {
 
+    // const 
+
     return (
         <>
             <h3 className="text-sm font-semibold text-gray-300 mb-4">Your daily itemes</h3>
