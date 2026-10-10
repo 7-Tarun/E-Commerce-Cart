@@ -1,15 +1,13 @@
 import Header from "./components/Header"
-// import ProductCard from "./components/ProductCard"
-import ProductList from "./components/ProductList"
 import Cart from "./components/Cart"
+import { Outlet } from "react-router-dom"
 
 function App() {
 
   return (
     <>
       <Header />
-      <ProductList/>
-      <Cart/>
+      <Outlet/>
     </>
   )
 }

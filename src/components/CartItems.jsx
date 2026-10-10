@@ -1,6 +1,4 @@
-function CartItem() {
-
-    // const 
+function CartItem({item}) {
 
     return (
         <>
@@ -10,10 +8,12 @@ function CartItem() {
                 <div className="bg-[#3d1414] p-3 rounded-2xl flex items-center justify-between border border-[#4d1d1d]">
                     <div className="flex items-center space-x-3">
 
-                        <div className="w-12 h-12 bg-[#521c1c] rounded-xl flex items-center justify-center text-xs">🎮</div>
+                        <div className="w-12 h-12 bg-[#521c1c] rounded-xl flex items-center justify-center text-xs">
+                            <img src={item.image} alt="" />
+                        </div>
                         <div>
-                            <h4 className="text-xs font-bold tracking-wide">PS-VITA</h4>
-                            <p className="text-[10px] text-gray-400">1026 6th Ave</p>
+                            <h4 className="text-xs font-bold tracking-wide">{item.title}</h4>
+                            <p className="text-[10px] text-gray-400">Price: ${item.price}</p>
                         </div>
                     </div>
 

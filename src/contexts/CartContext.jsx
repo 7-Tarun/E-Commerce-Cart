@@ -17,6 +17,7 @@ export const CartProvider = ({children}) => {
         else{
             // Agar nahi hai, toh naya object push karo quantity 1 ke sath
             setCart([...cart,{...product, quantity: 1}])
+            console.log(cart);
         }
     }
 
