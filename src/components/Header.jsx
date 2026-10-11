@@ -1,18 +1,34 @@
 import {Link, NavLink} from 'react-router-dom'
+import { useCart } from '../contexts/CartContext'
 
 function Header() {
+
+    const {cart} = useCart();
     return (
         <>
-                <header className="bg-white shadow-sm p-4 sticky top-0 z-50">
-                    <div className="max-w-7xl mx-auto flex justify-between items-center">
-                        <h1 className="text-2xl font-extrabold tracking-tight">FakeStore</h1>
+                <header className="site-header">
+                    <div className="site-header__inner">
+                        <Link to="/" className="brand">
+                            <span className="brand__mark" aria-hidden="true">F</span>
+                            <span>FakeStore</span>
+                        </Link>
 
 
-                        <Link to="/Cart" className="bg-gray-900 text-white px-5 py-2 rounded-lg relative cursor-pointer hover:bg-gray-800">
-                            Cart
-                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center border-2 border-white">
-                                0
+                        <Link
+                            to="/Cart"
+                            className="relative inline-flex min-h-[42px] items-center rounded-xl border border-[var(--color-line)] bg-[rgba(255,255,255,0.06)] px-[18px] text-[13px] font-bold transition-[border-color,background-color,transform] duration-[180ms] hover:-translate-y-0.5 hover:border-[rgba(212,255,84,0.5)] hover:bg-[rgba(212,255,84,0.1)] max-[380px]:min-h-[39px] max-[380px]:px-3"
+                        >
+                            <span>Cart</span>
+                            {cart.length > 0 ? (
+                                <span className="absolute -right-2 -top-2 grid size-[22px] place-items-center rounded-full border-2 border-[var(--color-ink)] bg-[var(--color-lime)] text-[11px] text-[var(--color-ink)]">
+                                {cart.length}
                             </span>
+                            ) : (
+                                <span>
+                                
+                            </span>
+                            )}
+
                         </Link>
                     </div>
                 </header>

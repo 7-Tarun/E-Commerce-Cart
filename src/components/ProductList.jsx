@@ -8,17 +8,23 @@ function ProductList() {
         queryFn: () => fetch('https://fakestoreapi.com/products').then(res => res.json())
     })
 
-    if (isLoading) return <div className="text-center mt-10">Loading...</div>
-    if (error) return <div className="text-center text-red-500 mt-10">Error: {error}</div>
+    if (isLoading) return <div className="catalog-message">Loading your finds...</div>
+    if (error) return <div className="catalog-message">Error: {error}</div>
 
     return (
         <>
-            <div className="bg-gray-50 min-h-screen">
-                <main className="max-w-7xl mx-auto p-6 pt-10">
-
-                    <h2 className="text-xl font-bold mb-6 text-gray-800">Latest Products</h2>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="catalog">
+                <main className="catalog__inner">
+                    <section className="catalog__intro">
+                        <div>
+                            <p className="catalog__eyebrow">Curated for everyday</p>
+                            <h1 className="catalog__title">Good finds.<br /><span>Better living.</span></h1>
+                        </div>
+                        <p className="catalog__description">
+                            Thoughtful picks, standout essentials, and little upgrades worth bringing home.
+                        </p>
+                    </section>
+                    <div className="product-grid">
                         {/* Data ko loop kara aur ProductCard ko data as a prop bheja */}
                         {data.map((item) => (
                             <ProductCard key={item.id} product={item}/>

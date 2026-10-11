@@ -9,28 +9,28 @@ function CartSummery() {
 
     return (
         <>
-            <div className="border-t border-[#4d1d1d] pt-4">
-                <h3 className="text-sm font-bold tracking-wide mb-3">Order Info</h3>
+            <div>
+                <h2>Order summary</h2>
 
-                <div className="space-y-2 text-xs text-gray-300">
-                    <div className="flex justify-between">
+                <div className="cart-summary__rows">
+                    <div className="cart-summary__row">
                         <span>Subtotal</span>
-                        <span className="font-mono">${subTotal.toFixed(2)}</span>
+                        <span>${subTotal.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="cart-summary__row">
                         <span>Shipping Cost</span>
-                        <span className="font-mono">${shippingCost}</span>
+                        <span>${shippingCost}</span>
                     </div>
 
 
-                    <div className="flex justify-between items-baseline pt-2 text-white">
-                        <span className="font-bold text-sm">Total</span>
-                        <span className="text-lg font-black font-mono">${finalCost.toFixed(2)}</span>
+                    <div className="cart-summary__row cart-summary__total">
+                        <span>Total</span>
+                        <strong>${finalCost.toFixed(2)}</strong>
                     </div>
                 </div>
 
 
-                <button className="w-full mt-5 bg-white text-black text-xs font-bold py-3 rounded-xl uppercase tracking-widest hover:bg-gray-200 transition-colors cursor-pointer">
+                <button className="checkout-button">
                     Checkout
                 </button>
             </div>
