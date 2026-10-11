@@ -22,6 +22,10 @@ export const CartProvider = ({children}) => {
     }
 
     const removeCart = (productID) => {
+        const userConfirmed = window.confirm("Kya aap is item ko cart se hatana chahte hain?");
+        if(!userConfirmed) {
+            return;
+        }
         //filter is immutable it does not change the original array instead it returns a brand-new array.
         const updateCart = cart.filter(item => item.id !== productID);
         setCart(updateCart);

@@ -42,6 +42,7 @@ function Cart() {
 
                 {/* Items */}
                 <section className="min-w-0">
+                    <h3 className="text-sm font-semibold text-gray-300 mb-4">Your daily itemes</h3>
                     {cart.length === 0 ? (<p>Your cart is empty.</p>) : (cart.map((item) => (
                         <CartItem key={item.id} item={item}/>
                     )))}

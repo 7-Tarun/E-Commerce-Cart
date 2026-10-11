@@ -1,11 +1,20 @@
-function CartItem({item}) {
+import { useCart } from "../contexts/CartContext"
+
+function CartItem({ item }) {
+
+    const {removeCart} = useCart();
 
     return (
         <>
-            <h3 className="text-sm font-semibold text-gray-300 mb-4">Your daily itemes</h3>
             <div className="space-y-3 mb-6">
 
-                <div className="bg-[#3d1414] p-3 rounded-2xl flex items-center justify-between border border-[#4d1d1d]">
+                <div className="relative bg-[#3d1414] p-3 rounded-2xl flex items-center justify-between border border-[#4d1d1d]">
+                    <span className="absolute -top-1.5 -right-1.5 bg-transparent text-white text-[15px] font-bold w-5 h-5 flex items-center justify-center rounded-full z-10 cursor-pointer"
+                    onClick={() => removeCart(item)}
+                    >
+                        🗑️
+                    </span>
+
                     <div className="flex items-center space-x-3">
 
                         <div className="w-12 h-12 bg-[#521c1c] rounded-xl flex items-center justify-center text-xs">
@@ -19,11 +28,12 @@ function CartItem({item}) {
 
                     <div className="flex items-center space-x-2 bg-[#280808] px-2 py-1 rounded-lg text-xs">
                         <button className="text-gray-400 hover:text-white px-1">-</button>
-                        <span className="font-mono text-[11px]">01</span>
-                        <button className="text-gray-400 hover:text-white px-1">+</button>
+                        <span className="font-mono text-[11px]">{item.quantity}</span>
+                        <button className="text-gray-400 hover:text-white px-1"
+                        
+                        >+</button>
                     </div>
                 </div>
-
             </div>
         </>
     )
