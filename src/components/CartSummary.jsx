@@ -1,4 +1,12 @@
+import { useCart } from "../contexts/CartContext"
+
+
 function CartSummery() {
+    const {cart} = useCart();
+    const subTotal = cart.reduce((acc, item) => acc+(item.price * item.quantity), 0);
+    const shippingCost = subTotal > 0 ? 30 : 0;
+    const finalCost = shippingCost + subTotal;
+
     return (
         <>
             <div className="border-t border-[#4d1d1d] pt-4">
@@ -7,17 +15,17 @@ function CartSummery() {
                 <div className="space-y-2 text-xs text-gray-300">
                     <div className="flex justify-between">
                         <span>Subtotal</span>
-                        <span className="font-mono">225,00</span>
+                        <span className="font-mono">${subTotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between">
                         <span>Shipping Cost</span>
-                        <span className="font-mono">$25,00</span>
+                        <span className="font-mono">${shippingCost}</span>
                     </div>
 
 
                     <div className="flex justify-between items-baseline pt-2 text-white">
                         <span className="font-bold text-sm">Total</span>
-                        <span className="text-lg font-black font-mono">$250,00</span>
+                        <span className="text-lg font-black font-mono">${finalCost.toFixed(2)}</span>
                     </div>
                 </div>
 

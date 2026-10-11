@@ -2,7 +2,8 @@ import { useCart } from "../contexts/CartContext"
 
 function ProductCard({ product }) {
 
-    const {addToCart} = useCart();
+    const {addToCart, cart, decreaseQuantity} = useCart();
+    const cartItem = cart.find(item => item.id === product.id);
 
     return (
         <>
@@ -17,12 +18,25 @@ function ProductCard({ product }) {
                 <div className="mt-auto flex justify-between items-center pt-4 border-t border-gray-50">
                     <span className="text-2xl font-black text-gray-900">${product.price}</span>
 
-                    
-                    <button className="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors cursor-pointer"
+{!cartItem ? (
+    <button className="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors cursor-pointer"
                     onClick={() => addToCart(product)}
                     >
                         Add to Cart
                     </button>
+) : (
+<div className="flex items-center space-x-2 bg-[#280808] px-2 py-1 rounded-lg text-xs">
+                        <button className="text-gray-400 hover:text-white px-1"
+                        onClick={() => decreaseQuantity(product.id)}
+                        >-</button>
+                        <span className="font-mono text-[11px] text-white">{cartItem.quantity}</span>
+                        <button className="text-gray-400 hover:text-white px-1"
+                        onClick={() => addToCart(product)}
+                        >+</button>
+                    </div>
+)}
+
+                    
                 </div>
             </article>
         </>
@@ -30,3 +44,5 @@ function ProductCard({ product }) {
 }
 
 export default ProductCard
+
+{/*  */}

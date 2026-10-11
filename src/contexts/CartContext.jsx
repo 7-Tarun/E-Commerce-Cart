@@ -22,7 +22,7 @@ export const CartProvider = ({children}) => {
     }
 
     const removeCart = (productID) => {
-        const userConfirmed = window.confirm("Kya aap is item ko cart se hatana chahte hain?");
+        const userConfirmed = window.confirm("Remove Item From Cart?");
         if(!userConfirmed) {
             return;
         }
