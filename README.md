@@ -1,16 +1,55 @@
-# React + Vite
+# E-Commerce Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive e-commerce cart app built with React. This practice project demonstrates core React concepts by implementing a small, real-world shopping cart with state persistence and data fetching patterns.
 
-Currently, two official plugins are available:
+Live demo: https://e-commerce-cart-v1.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Product listing (demo data / fetchable)
+- Add / remove items, adjust quantities
+- Dynamic totals and simple tax example
+- Cart persistence using localStorage
+- Client-side navigation with React Router
+- Data fetching & caching patterns with React Query
+- Responsive UI built with Tailwind CSS
 
-## React Compiler
+## Tech Stack
+- React (Functional components, hooks)
+- Context API (global cart state)
+- React Query (data fetching & caching)
+- React Router (routing)
+- Tailwind CSS (styling)
+- localStorage (cart persistence)
+- JavaScript (ES6+), HTML, CSS
+- Vercel (deployment)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+1. Clone
+   ```bash
+   git clone https://github.com/7-Tarun/E-Commerce-Cart.git
+   ```
+2. Install
+   ```bash
+   npm install
+   ```
+3. Run
+   ```bash
+   npm start
+   ```
+4. Open http://localhost:3000
 
-## Expanding the Oxlint configuration
+## Learning Highlights
+- Component composition and prop-driven UI
+- State management with Context (and patterns for useReducer)
+- Side effects with useEffect (localStorage sync)
+- Data-fetching best practices using React Query
+- Responsive design with Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Contributing
+This is a practice project — contributions and suggestions are welcome. Fork, branch, and open a PR.
+
+## License
+MIT
+
+## Author
+7-Tarun
